@@ -23,7 +23,7 @@ const Hero = () => {
                     transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
                     className="text-4xl font-semibold tracking-tight text-white sm:text-5xl"
                 >
-                    Himanshu Kumar Singh
+                    Himanshu
                 </motion.h1>
 
                 <motion.p
@@ -46,7 +46,7 @@ const Hero = () => {
                     <div className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-white/10 bg-white/5">
                         <div className="absolute inset-0 opacity-70 bg-linear-to-br from-sky-400/20 via-fuchsia-400/10 to-transparent" />
                         <span className="relative text-sm font-semibold text-white/90">
-                            HK
+                            H
                         </span>
                     </div>
                     <div className="text-sm">

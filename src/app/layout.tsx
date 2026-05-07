@@ -5,12 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Himanshu Kumar Singh | Software Engineer",
+  title: "Himanshu | Software Engineer",
   description:
     "Software Engineer focused on building reliable systems, thoughtful tooling, and clean developer experience.",
   metadataBase: new URL("https://to4to.dev"),
   openGraph: {
-    title: "Himanshu Kumar Singh | Software Engineer",
+    title: "Himanshu | Software Engineer",
     description:
       "Software Engineer focused on building reliable systems, thoughtful tooling, and clean developer experience.",
     url: "https://to4to.dev",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Himanshu Kumar Singh | Software Engineer",
+    title: "Himanshu | Software Engineer",
     description:
       "Software Engineer focused on building reliable systems, thoughtful tooling, and clean developer experience.",
   },
