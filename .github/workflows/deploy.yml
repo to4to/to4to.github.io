@@ -30,6 +30,12 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Vulnerability audit (high/critical)
+        run: npm audit --audit-level=high
+
       - name: Build (static export)
         run: npm run build
 

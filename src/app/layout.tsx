@@ -9,6 +9,31 @@ export const metadata: Metadata = {
   description:
     "Software Engineer focused on building reliable systems, thoughtful tooling, and clean developer experience.",
   metadataBase: new URL("https://to4to.dev"),
+  alternates: {
+    canonical: "https://to4to.dev/",
+  },
+  keywords: [
+    "Himanshu Kumar Singh",
+    "to4to",
+    "Software Engineer",
+    "Backend",
+    "DevOps",
+    "Cloud",
+    "Web3",
+  ],
+  authors: [{ name: "Himanshu Kumar Singh" }],
+  creator: "to4to",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: "Himanshu Kumar Singh | Software Engineer",
     description:
@@ -19,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Himanshu Kumar Singh | Software Engineer",
     description:
       "Software Engineer focused on building reliable systems, thoughtful tooling, and clean developer experience.",
