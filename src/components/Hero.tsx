@@ -26,7 +26,8 @@ const Hero = () => {
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a
-                        href="mailto:contact@to4to.dev"
+                        href="#contact"
+                        aria-label="Jump to contact section"
                         className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-200 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/70"
                     >
                         Contact me

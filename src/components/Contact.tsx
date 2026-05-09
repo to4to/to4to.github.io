@@ -1,8 +1,31 @@
+"use client";
+
 import { Mail } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 
 const Contact = () => {
+    const emailAddress = "contact@to4to.dev";
+    const mailtoHref = useMemo(() => `mailto:${emailAddress}`, [emailAddress]);
+    const [copied, setCopied] = useState(false);
+
+    useEffect(() => {
+        if (!copied) return;
+
+        const timeoutId = window.setTimeout(() => setCopied(false), 1500);
+        return () => window.clearTimeout(timeoutId);
+    }, [copied]);
+
+    const handleEmailClick = async () => {
+        try {
+            await navigator.clipboard.writeText(emailAddress);
+            setCopied(true);
+        } catch {
+            // If clipboard is unavailable, mailto navigation still works.
+        }
+    };
+
     return (
-        <section className="mt-16">
+        <section id="contact" className="mt-16">
             <div className="grid gap-5 rounded-lg border border-white/10 bg-cyan-100/[0.08] p-6 sm:grid-cols-[1fr_auto] sm:items-center">
                 <div>
                     <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-100/70">
@@ -18,11 +41,13 @@ const Contact = () => {
                     </p>
                 </div>
                 <a
-                    href="mailto:contact@to4to.dev"
+                    href={mailtoHref}
+                    onClick={handleEmailClick}
+                    title={emailAddress}
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                 >
                     <Mail className="h-4 w-4" aria-hidden="true" />
-                    Email me
+                    {copied ? "Copied" : "Email me"}
                 </a>
             </div>
         </section>
