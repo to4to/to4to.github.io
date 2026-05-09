@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Code2 } from "lucide-react";
 
 const highlights = [
     { label: "Role", value: "Software Engineer" },
@@ -10,7 +10,12 @@ const Hero = () => {
     return (
         <section className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
             <div>
-                <h1 className="mt-7 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <div className="inline-flex items-center gap-2 rounded-lg border border-white/12 bg-white/6 px-3 py-2 text-xs font-medium text-white/80">
+                    <Code2 className="h-4 w-4 text-cyan-200" aria-hidden="true" />
+                    Calm systems. Reliable software.
+                </div>
+
+                <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
                     Himanshu Kumar Singh
                 </h1>
 
