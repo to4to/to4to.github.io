@@ -1,20 +1,15 @@
-import { ArrowUpRight, ShieldCheck, Terminal } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const highlights = [
-    { label: "Focus", value: "Backend, DevOps, Cloud" },
-    { label: "Style", value: "Pragmatic, reliable, clean" },
-    { label: "Mode", value: "Learning, iterating, shipping" },
+    { label: "Role", value: "Software Engineer" },
+    { label: "Strengths", value: "Problem solving, ownership, communication" },
+    { label: "Interests", value: "Systems, tooling, product engineering" },
 ];
 
 const Hero = () => {
     return (
         <section className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-end">
             <div>
-                <div className="inline-flex items-center gap-2 rounded-lg border border-emerald-300/15 bg-emerald-300/8 px-3 py-2 text-xs font-medium text-emerald-100">
-                    <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                    Static, fast, security-first personal site
-                </div>
-
                 <h1 className="mt-7 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
                     Himanshu Kumar Singh
                 </h1>
@@ -47,16 +42,6 @@ const Hero = () => {
             </div>
 
             <div className="rounded-lg border border-white/10 bg-white/[0.045] p-4 shadow-2xl shadow-black/25">
-                <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                    <div className="flex items-center gap-2 text-sm font-medium text-white/80">
-                        <Terminal className="h-4 w-4 text-cyan-200" aria-hidden="true" />
-                        profile.sys
-                    </div>
-                    <span className="rounded-md border border-emerald-300/15 bg-emerald-300/8 px-2 py-1 text-xs text-emerald-100">
-                        online
-                    </span>
-                </div>
-
                 <div className="space-y-3">
                     {highlights.map((item) => (
                         <div
