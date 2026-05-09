@@ -5,6 +5,7 @@
 If you believe you have found a security vulnerability, please report it privately.
 
 - Contact: <himanshuto4to@outlook.com>
+- Contact: <contact@to4to.dev>
 - Subject: `Security: <short description>`
 
 Please include:

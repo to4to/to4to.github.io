@@ -1,4 +1,4 @@
-Contact: mailto:himanshuto4to@outlook.com
+Contact: mailto:contact@to4to.dev
 Preferred-Languages: en
 Canonical: https://to4to.dev/.well-known/security.txt
 Policy: https://github.com/to4to/to4to.github.io/security/policy
