@@ -7,7 +7,7 @@ import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-5 py-14">
+    <main className="mx-auto w-full max-w-6xl px-5 py-8 sm:px-6 sm:py-10">
       <Banner />
       <Hero />
       <About />
