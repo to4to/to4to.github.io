@@ -1,13 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Banner() {
     return (
-        <motion.aside
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+        <aside
             className="mb-10 w-full"
             aria-label="Status"
         >
@@ -23,6 +16,6 @@ export default function Banner() {
                     </span>
                 </div>
             </div>
-        </motion.aside>
+        </aside>
     );
 }

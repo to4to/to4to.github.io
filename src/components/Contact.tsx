@@ -1,14 +1,7 @@
-"use client";
-import { motion } from "framer-motion";
-
 const Contact = () => {
     return (
         <section className="mt-14">
-            <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
+            <div
                 className="rounded-2xl border border-white/10 bg-white/5 p-6"
             >
                 <h2 className="text-sm font-medium tracking-wide text-white/80">
@@ -23,7 +16,7 @@ const Contact = () => {
                 >
                     himanshuto4to@outlook.com
                 </a>
-            </motion.div>
+            </div>
         </section>
     );
 };

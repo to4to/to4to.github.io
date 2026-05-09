@@ -1,8 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "connect-src 'none'",
+  "font-src 'self' data:",
+  "form-action 'self'",
+  "frame-src 'none'",
+  "img-src 'self' data:",
+  "manifest-src 'self'",
+  "object-src 'none'",
+  process.env.NODE_ENV === "development"
+    ? "script-src 'self' 'unsafe-inline'"
+    : "script-src 'self'",
+  process.env.NODE_ENV === "development"
+    ? "style-src 'self' 'unsafe-inline'"
+    : "style-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+export const dynamic = "error";
 
 export const metadata: Metadata = {
   title: "Himanshu Kumar Singh | Software Engineer",
@@ -49,6 +67,11 @@ export const metadata: Metadata = {
     description:
       "Software Engineer focused on building reliable systems, thoughtful tooling, and clean developer experience.",
   },
+  referrer: "no-referrer",
+  other: {
+    "color-scheme": "dark",
+    "format-detection": "telephone=no, date=no, email=no, address=no",
+  },
 };
 
 export default function RootLayout({
@@ -58,7 +81,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className={`${inter.className} min-h-dvh`}>{children}</body>
+      <head>
+        <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
+      </head>
+      <body className="min-h-dvh">{children}</body>
     </html>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
 import {
     BriefcaseBusiness,
     Camera,
@@ -53,25 +51,20 @@ const Socials = () => {
                     Open profiles in a new tab
                 </p>
             </div>
-            <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
+            <div
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
             >
                 {socials.map((social) => {
                     const Icon = social.icon;
 
                     return (
-                        <motion.a
+                        <a
                             key={social.name}
                             href={social.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ y: -2 }}
-                            whileTap={{ scale: 0.99 }}
-                            className="group relative rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition-colors hover:border-white/20 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+                            referrerPolicy="no-referrer"
+                            className="group relative rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
                             aria-label={`${social.name} (opens in a new tab)`}
                         >
                             <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100 bg-linear-to-r from-sky-400/10 via-fuchsia-400/10 to-sky-400/10" />
@@ -83,10 +76,10 @@ const Socials = () => {
                                     {social.name}
                                 </span>
                             </div>
-                        </motion.a>
+                        </a>
                     );
                 })}
-            </motion.div>
+            </div>
         </section>
     );
 };
