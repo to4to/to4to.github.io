@@ -84,6 +84,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <head>
+        {isDevelopment ? (
+          <style>{`button[aria-label="Open Next.js Dev Tools"]{display:none !important}`}</style>
+        ) : null}
         {isDevelopment ? null : (
           <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
         )}
