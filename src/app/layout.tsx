@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const isDevelopment = process.env.NODE_ENV === "development";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -82,7 +84,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <head>
-        <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
+        {isDevelopment ? null : (
+          <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
+        )}
       </head>
       <body className="min-h-dvh">{children}</body>
     </html>

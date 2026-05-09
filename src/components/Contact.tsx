@@ -20,7 +20,6 @@ const Contact = () => {
             await navigator.clipboard.writeText(emailAddress);
             setCopied(true);
         } catch {
-            // If clipboard is unavailable, mailto navigation still works.
         }
     };
 
@@ -38,6 +37,14 @@ const Contact = () => {
                         I am always open to thoughtful engineering conversations,
                         collaboration, and work that benefits from careful systems
                         thinking.
+                    </p>
+                    <p className="mt-3 text-sm text-white/68">
+                        <a
+                            href={mailtoHref}
+                            className="font-medium text-white/80 underline decoration-white/15 underline-offset-4 hover:text-white hover:decoration-white/30"
+                        >
+                            {emailAddress}
+                        </a>
                     </p>
                 </div>
                 <a
