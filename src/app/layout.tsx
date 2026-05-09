@@ -81,8 +81,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const htmlClassName = isDevelopment
+    ? "h-full antialiased hydrated"
+    : "h-full antialiased";
+
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={htmlClassName} suppressHydrationWarning>
       <head>
         {isDevelopment ? (
           <style>{`button[aria-label="Open Next.js Dev Tools"]{display:none !important}`}</style>

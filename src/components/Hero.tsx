@@ -2,8 +2,8 @@ import { ArrowUpRight, Code2 } from "lucide-react";
 
 const highlights = [
     { label: "Role", value: "Software Engineer" },
-    { label: "Strengths", value: "Problem solving, ownership, communication" },
-    { label: "Interests", value: "Systems, tooling, product engineering" },
+    { label: "Strengths", value: "Shipping, debugging, and clean architecture" },
+    { label: "Interests", value: "Systems, tooling, and product-quality UX" },
 ];
 
 const Hero = () => {
