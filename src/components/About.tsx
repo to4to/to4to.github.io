@@ -1,72 +1,57 @@
-import { Cloud, Code2, Gauge, LockKeyhole } from "lucide-react";
-
 const capabilities = [
     {
-        title: "Reliable systems",
-        description:
-            "I care about predictable behavior, clean boundaries, and code paths that are easy to reason about.",
-        icon: Code2,
+        title: "Development",
+        description: "Clean, maintainable software built with care.",
     },
     {
-        title: "Cloud and DevOps",
-        description:
-            "I like automation that removes toil, makes deploys calmer, and keeps operational details visible.",
-        icon: Cloud,
+        title: "Collaboration",
+        description: "Clear communication and steady execution.",
     },
     {
-        title: "Performance",
-        description:
-            "I look for simple choices that cut latency, reduce payloads, and keep interfaces quick.",
-        icon: Gauge,
-    },
-    {
-        title: "Security posture",
-        description:
-            "I prefer smaller attack surfaces, dependency hygiene, and defaults that fail closed.",
-        icon: LockKeyhole,
+        title: "Quality",
+        description: "Thoughtful defaults and attention to detail.",
     },
 ];
 
 const About = () => {
     return (
-        <section className="mt-16">
-            <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-                <div>
-                    <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-100/70">
-                        About
-                    </p>
-                    <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-                        Practical engineering with a bias for systems that hold up.
-                    </h2>
-                    <p className="mt-4 text-sm leading-7 text-white/62">
-                        I build software with a focus on reliability, performance,
-                        and maintainable architecture. I care about strong
-                        fundamentals, pragmatic automation, and improvements that
-                        make the next change easier.
-                    </p>
-                </div>
+        <section id="about" className="scroll-mt-10">
+            <div className="rounded-2xl border border-white/10 bg-white/3 px-5 py-8 sm:px-8">
+                <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+                    <div>
+                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-100/70">
+                            About
+                        </p>
+                        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+                            Building reliable software, simply.
+                        </h2>
+                        <p className="mt-4 text-sm leading-7 text-white/62">
+                            I am a software developer focused on building stable,
+                            professional products and practical solutions.
+                        </p>
+                        <p className="mt-4 text-sm leading-7 text-white/60">
+                            I value simple architecture, good defaults, and software that
+                            stays easy to understand and change.
+                        </p>
+                    </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
-                    {capabilities.map((capability) => {
-                        const Icon = capability.icon;
-
-                        return (
-                            <article
-                                key={capability.title}
-                                className="rounded-lg border border-white/10 bg-white/[0.045] p-5"
-                            >
-                                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/20">
-                                    <Icon className="h-5 w-5 text-cyan-100" aria-hidden="true" />
-                                </span>
-                                <h3 className="mt-4 text-sm font-semibold text-white">
-                                    {capability.title}
-                                </h3>
-                                <p className="mt-2 text-sm leading-6 text-white/58">
-                                    {capability.description}
-                                </p>
-                            </article>
-                        );
-                    })}
+                    <div className="divide-y divide-white/10 overflow-hidden rounded-xl border border-white/10 bg-white/3.5">
+                        {capabilities.map((capability) => {
+                            return (
+                                <article
+                                    key={capability.title}
+                                    className="grid gap-1 px-5 py-4 sm:grid-cols-[8rem_1fr] sm:gap-4"
+                                >
+                                    <h3 className="text-sm font-semibold text-white">
+                                        {capability.title}
+                                    </h3>
+                                    <p className="text-sm leading-6 text-white/58">
+                                        {capability.description}
+                                    </p>
+                                </article>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </section>

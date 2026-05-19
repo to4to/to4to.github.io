@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: "/",
         },
         sitemap: "https://to4to.dev/sitemap.xml",
-        host: "https://to4to.dev",
+        host: "to4to.dev",
     };
 }

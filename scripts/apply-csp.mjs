@@ -24,8 +24,22 @@ const commonHeaders = [
   ["Referrer-Policy", "no-referrer"],
   ["X-Content-Type-Options", "nosniff"],
   ["X-Frame-Options", "DENY"],
-  ["X-Robots-Tag", "index, follow"],
 ];
+
+const staticAssetHeaderBlocks = [
+  [
+    "/_next/static/*",
+    "  Cache-Control: public, max-age=31536000, immutable",
+  ].join("\n"),
+];
+
+function robotsTagFor(path) {
+  if (path === "/404.html" || path.startsWith("/404/") || path.startsWith("/_not-found")) {
+    return "noindex, nofollow";
+  }
+
+  return "index, follow";
+}
 
 const hashSource = (content) => {
   const digest = createHash("sha256").update(content).digest("base64");
@@ -118,13 +132,14 @@ function headersBlock(path, csp) {
     path,
     `  Content-Security-Policy: ${csp}`,
     ...commonHeaders.map(([key, value]) => `  ${key}: ${value}`),
+    `  X-Robots-Tag: ${robotsTagFor(path)}`,
   ];
 
   return lines.join("\n");
 }
 
 const files = await htmlFiles(outDir);
-const headerBlocks = [];
+const headerBlocks = [...staticAssetHeaderBlocks];
 
 await Promise.all(
   files.map(async (file) => {

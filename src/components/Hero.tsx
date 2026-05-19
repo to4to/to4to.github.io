@@ -1,9 +1,9 @@
 import { ArrowUpRight, Code2 } from "lucide-react";
 
 const highlights = [
-    { label: "Role", value: "Software Engineer" },
-    { label: "Strengths", value: "Shipping, debugging, and clean architecture" },
-    { label: "Interests", value: "Systems, tooling, and product-quality UX" },
+    { label: "Focus", value: "Reliable software" },
+    { label: "Approach", value: "Calm, steady, practical" },
+    { label: "Line", value: "Calm systems. Reliable software." },
 ];
 
 const Hero = () => {
@@ -20,8 +20,8 @@ const Hero = () => {
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-white/68">
-                    Software engineer focused on dependable systems, sharp tooling,
-                    and infrastructure that stays understandable after it grows.
+                    I build software with an emphasis on reliability, clarity, and
+                    long-term maintainability.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -46,17 +46,23 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="rounded-lg border border-white/10 bg-white/[0.045] p-4 shadow-2xl shadow-black/25">
+            <div className="rounded-xl border border-white/10 bg-white/3.5 p-5">
+                <div className="mb-4 flex items-center justify-between">
+                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-100/70">
+                        Snapshot
+                    </p>
+                    <p className="text-xs text-white/45">Now</p>
+                </div>
                 <div className="space-y-3">
                     {highlights.map((item) => (
                         <div
                             key={item.label}
-                            className="rounded-lg border border-white/8 bg-black/18 p-4"
+                            className="flex items-center justify-between gap-4 border-b border-white/8 pb-3 last:border-b-0 last:pb-0"
                         >
-                            <p className="text-xs uppercase tracking-[0.18em] text-white/38">
+                            <p className="text-xs text-white/38">
                                 {item.label}
                             </p>
-                            <p className="mt-2 text-sm font-medium leading-6 text-white/86">
+                            <p className="text-right text-sm font-medium leading-6 text-white/82">
                                 {item.value}
                             </p>
                         </div>

@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build && node scripts/apply-csp.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint . --max-warnings=0 --cache",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
     "node": ">=20 <26",
