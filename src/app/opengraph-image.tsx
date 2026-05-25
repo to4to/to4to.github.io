@@ -58,7 +58,7 @@ export default function OpenGraphImage() {
                             color: "rgba(231, 234, 242, 0.68)",
                         }}
                     >
-                        Dependable systems, sharp tooling, and web that stays clear as it scales.
+                        Reliable products, clear interfaces, maintainable systems, and developer tooling.
                     </div>
                 </div>
 

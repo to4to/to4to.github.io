@@ -43,21 +43,21 @@ const socials = [
 
 const Socials = () => {
     return (
-        <section id="socials" className="scroll-mt-10">
-            <div className="rounded-2xl border border-white/10 bg-white/3 px-5 py-8 sm:px-8">
-                <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-100/70">
-                            Socials
-                        </p>
-                        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">
-                            Find me around the web.
-                        </h2>
-                    </div>
-                    <p className="text-sm text-white/48">Profiles open in a new tab.</p>
+        <section id="socials" className="scroll-mt-24 py-12 sm:py-16">
+            <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+                <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">
+                        Socials
+                    </p>
+                    <h2 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+                        Around the web.
+                    </h2>
+                    <p className="mt-4 max-w-md text-sm leading-7 text-slate-600">
+                        Professional profiles, public work, and places to connect.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {socials.map((social) => {
                         const Icon = social.icon;
 
@@ -68,19 +68,19 @@ const Socials = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 referrerPolicy="no-referrer"
-                                className="group flex min-h-20 items-center justify-between rounded-xl border border-white/10 bg-white/4.5 px-4 py-4 transition hover:-translate-y-0.5 hover:border-cyan-200/30 hover:bg-cyan-200/8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/55"
+                                className="group flex min-h-20 items-center justify-between rounded-lg border border-slate-900/10 bg-white px-4 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-900/20 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/20"
                                 aria-label={`${social.name} opens in a new tab`}
                             >
                                 <span className="flex items-center gap-3">
-                                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/20">
-                                        <Icon className="h-5 w-5 text-white/82" aria-hidden="true" />
+                                    <span className="grid h-10 w-10 place-items-center rounded-md bg-slate-100 text-slate-800">
+                                        <Icon className="h-5 w-5" aria-hidden="true" />
                                     </span>
-                                    <span className="text-sm font-semibold text-white/90">
+                                    <span className="text-sm font-semibold text-slate-950">
                                         {social.name}
                                     </span>
                                 </span>
                                 <ArrowUpRight
-                                    className="h-4 w-4 text-white/35 transition group-hover:text-cyan-100"
+                                    className="h-4 w-4 text-slate-400 transition group-hover:text-slate-950"
                                     aria-hidden="true"
                                 />
                             </a>

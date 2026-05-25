@@ -1,57 +1,65 @@
+import { Blocks, Compass, Gauge, ShieldCheck } from "lucide-react";
+
 const capabilities = [
     {
-        title: "Development",
-        description: "Clean, maintainable software built with care.",
+        title: "Product Engineering",
+        description: "Designing features around real workflows, clear states, and predictable behavior.",
+        icon: Blocks,
     },
     {
-        title: "Collaboration",
-        description: "Clear communication and steady execution.",
+        title: "Systems Thinking",
+        description: "Choosing simple boundaries, explicit data flow, and code that stays easy to change.",
+        icon: Compass,
     },
     {
-        title: "Quality",
-        description: "Thoughtful defaults and attention to detail.",
+        title: "Reliability",
+        description: "Reducing surprises with careful defaults, accessible interfaces, and steady iteration.",
+        icon: ShieldCheck,
+    },
+    {
+        title: "Performance",
+        description: "Keeping pages responsive, focused, and practical across the devices people actually use.",
+        icon: Gauge,
     },
 ];
 
 const About = () => {
     return (
-        <section id="about" className="scroll-mt-10">
-            <div className="rounded-2xl border border-white/10 bg-white/3 px-5 py-8 sm:px-8">
-                <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-                    <div>
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-100/70">
-                            About
-                        </p>
-                        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-                            Building reliable software, simply.
-                        </h2>
-                        <p className="mt-4 text-sm leading-7 text-white/62">
-                            I am a software developer focused on building stable,
-                            professional products and practical solutions.
-                        </p>
-                        <p className="mt-4 text-sm leading-7 text-white/60">
-                            I value simple architecture, good defaults, and software that
-                            stays easy to understand and change.
-                        </p>
-                    </div>
+        <section id="about" className="scroll-mt-24 py-12 sm:py-16">
+            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+                <div className="lg:sticky lg:top-28">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
+                        About
+                    </p>
+                    <h2 className="mt-4 max-w-xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+                        Clear software for messy real-world work.
+                    </h2>
+                    <p className="mt-5 max-w-xl text-base leading-8 text-slate-700">
+                        I build professional products with a preference for readable code,
+                        durable structure, and interfaces that make the next action obvious.
+                    </p>
+                </div>
 
-                    <div className="divide-y divide-white/10 overflow-hidden rounded-xl border border-white/10 bg-white/3.5">
-                        {capabilities.map((capability) => {
-                            return (
-                                <article
-                                    key={capability.title}
-                                    className="grid gap-1 px-5 py-4 sm:grid-cols-[8rem_1fr] sm:gap-4"
-                                >
-                                    <h3 className="text-sm font-semibold text-white">
+                <div className="grid gap-px overflow-hidden rounded-lg border border-slate-900/10 bg-slate-900/10 sm:grid-cols-2">
+                    {capabilities.map((capability) => {
+                        const Icon = capability.icon;
+
+                        return (
+                            <article key={capability.title} className="bg-white p-5 sm:p-6">
+                                <div className="flex items-center gap-3">
+                                    <span className="grid h-10 w-10 place-items-center rounded-md bg-teal-50 text-teal-700">
+                                        <Icon className="h-5 w-5" aria-hidden="true" />
+                                    </span>
+                                    <h3 className="text-base font-semibold text-slate-950">
                                         {capability.title}
                                     </h3>
-                                    <p className="text-sm leading-6 text-white/58">
-                                        {capability.description}
-                                    </p>
-                                </article>
-                            );
-                        })}
-                    </div>
+                                </div>
+                                <p className="mt-4 text-sm leading-7 text-slate-600">
+                                    {capability.description}
+                                </p>
+                            </article>
+                        );
+                    })}
                 </div>
             </div>
         </section>

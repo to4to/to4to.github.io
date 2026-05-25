@@ -1,111 +1,70 @@
-"use client";
+import CopyEmailButton from "@/components/CopyEmailButton";
+import { ArrowUpRight, Mail } from "lucide-react";
 
-import { Mail } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+const contactNotes = ["Open to roles", "Project work", "Collaboration"];
 
 const Contact = () => {
     const emailAddress = "contact@to4to.dev";
-    const [hasCopied, setHasCopied] = useState(false);
-    const resetTimerRef = useRef<number | null>(null);
-
-    useEffect(() => {
-        return () => {
-            if (resetTimerRef.current) {
-                window.clearTimeout(resetTimerRef.current);
-            }
-        };
-    }, []);
-
-    const copyEmailAddress = async (): Promise<boolean> => {
-        try {
-            if (navigator?.clipboard?.writeText) {
-                await navigator.clipboard.writeText(emailAddress);
-                return true;
-            }
-        } catch {
-            // fall back below
-        }
-
-        try {
-            const textarea = document.createElement("textarea");
-            textarea.value = emailAddress;
-            textarea.setAttribute("readonly", "");
-            textarea.style.position = "fixed";
-            textarea.style.opacity = "0";
-
-            document.body.appendChild(textarea);
-            textarea.select();
-            const didCopy = document.execCommand("copy");
-            document.body.removeChild(textarea);
-            return didCopy;
-        } catch {
-            // If copy isn't possible, do nothing.
-            return false;
-        }
-    };
-
-    const handleCopy = async () => {
-        const didCopy = await copyEmailAddress();
-
-        if (!didCopy) {
-            return;
-        }
-
-        setHasCopied(true);
-
-        if (resetTimerRef.current) {
-            window.clearTimeout(resetTimerRef.current);
-        }
-
-        resetTimerRef.current = window.setTimeout(() => {
-            setHasCopied(false);
-            resetTimerRef.current = null;
-        }, 2000);
-    };
+    const mailtoUrl = `mailto:${emailAddress}`;
+    const emailSubject = "Let's connect about a software opportunity";
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(emailSubject)}`;
 
     return (
-        <section id="contact" className="scroll-mt-10">
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-cyan-100/8 px-5 py-8 sm:px-8">
-                <div
-                    className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-200/10 blur-2xl"
-                    aria-hidden="true"
-                />
-                <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-center">
-                    <div>
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-100/70">
-                            Contact
-                        </p>
-                        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">
-                            Have something worth building?
-                        </h2>
-                        <p className="mt-3 max-w-2xl text-sm leading-6 text-white/62">
-                            I am open to professional opportunities, collaboration,
-                            and conversations around building good software.
-                        </p>
-                        <p className="mt-3 text-sm text-white/68">
+        <section id="contact" className="scroll-mt-24 py-12 sm:py-16">
+            <div className="grid overflow-hidden rounded-lg border border-slate-900/10 bg-white shadow-xl shadow-slate-950/8 lg:grid-cols-[1fr_0.62fr]">
+                <div className="p-6 sm:p-8 lg:p-10">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">
+                        Contact
+                    </p>
+                    <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+                        Let&apos;s talk about the next build.
+                    </h2>
+                    <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700">
+                        I am open to software development opportunities, focused project work,
+                        and practical conversations around building reliable products.
+                    </p>
+
+                    <div className="mt-7 flex flex-wrap gap-2">
+                        {contactNotes.map((note) => (
+                            <span
+                                key={note}
+                                className="rounded-full border border-slate-900/10 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600"
+                            >
+                                {note}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="border-t border-slate-900/10 bg-slate-950 p-6 text-white sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+                    <div className="flex h-full flex-col justify-between gap-8">
+                        <div>
+                            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200/80">
+                                Email
+                            </p>
                             <a
-                                href={`mailto:${emailAddress}`}
-                                className="font-medium text-white/80 underline decoration-white/15 underline-offset-4 hover:text-white hover:decoration-white/30"
+                                href={mailtoUrl}
+                                className="mt-3 inline-flex break-all text-lg font-semibold text-white underline decoration-white/18 underline-offset-4 transition hover:decoration-white/45"
                             >
                                 {emailAddress}
                             </a>
-                        </p>
+                        </div>
+
+                        <div className="grid gap-3">
+                            <a
+                                href={gmailUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                referrerPolicy="no-referrer"
+                                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                            >
+                                <Mail className="h-4 w-4" aria-hidden="true" />
+                                Send email
+                                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                            </a>
+                            <CopyEmailButton emailAddress={emailAddress} />
+                        </div>
                     </div>
-                    <button
-                        type="button"
-                        onClick={handleCopy}
-                        title={hasCopied ? "Copied" : "Copy email address"}
-                        aria-label={
-                            hasCopied
-                                ? `Copied ${emailAddress} to clipboard`
-                                : `Copy ${emailAddress} to clipboard`
-                        }
-                        disabled={hasCopied}
-                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-                    >
-                        <Mail className="h-4 w-4" aria-hidden="true" />
-                        {hasCopied ? "Copied" : "Copy email"}
-                    </button>
                 </div>
             </div>
         </section>

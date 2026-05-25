@@ -7,23 +7,33 @@ const outDir = join(process.cwd(), "out");
 const baseDirectives = [
   "default-src 'self'",
   "base-uri 'self'",
+  "child-src 'none'",
   "connect-src 'none'",
   "font-src 'self' data:",
-  "form-action 'self'",
+  "form-action 'none'",
+  "frame-ancestors 'none'",
   "frame-src 'none'",
   "img-src 'self' data:",
   "manifest-src 'self'",
+  "media-src 'none'",
+  "navigate-to 'self' https://github.com https://www.linkedin.com https://x.com https://instagram.com https://threads.net https://bsky.app https://mail.google.com mailto:",
   "object-src 'none'",
+  "prefetch-src 'self'",
   "upgrade-insecure-requests",
+  "worker-src 'none'",
 ];
 
 const commonHeaders = [
+  ["Cache-Control", "no-cache, must-revalidate"],
   ["Cross-Origin-Opener-Policy", "same-origin"],
   ["Cross-Origin-Resource-Policy", "same-origin"],
+  ["Origin-Agent-Cluster", "?1"],
   ["Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=(), fullscreen=(self)"],
   ["Referrer-Policy", "no-referrer"],
+  ["Strict-Transport-Security", "max-age=31536000"],
   ["X-Content-Type-Options", "nosniff"],
   ["X-Frame-Options", "DENY"],
+  ["X-Permitted-Cross-Domain-Policies", "none"],
 ];
 
 const staticAssetHeaderBlocks = [

@@ -35,7 +35,7 @@ export default function TwitterImage() {
                             maxWidth: 980,
                         }}
                     >
-                        Systems · Tooling · Web — built for clarity
+                        Reliable products, clear interfaces, and maintainable systems.
                     </div>
                     <div
                         style={{
